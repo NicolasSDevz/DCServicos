@@ -1,4 +1,4 @@
-// ===== Donna Clean — Pós-Obra =====
+// ===== Donna Clean — Airbnb / Temporada =====
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -87,23 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { threshold: 0.6 });
       io.observe(box);
     }
-  });
-
-  // Vídeos: só tocam quando o usuário clica (evita autoplay pesado)
-  document.querySelectorAll('.click-to-play').forEach(slot => {
-    const video = slot.querySelector('video');
-    const playBtn = slot.querySelector('.play-overlay');
-    if (!video || !playBtn) return;
-
-    playBtn.addEventListener('click', () => {
-      video.controls = true;
-      video.play();
-      slot.classList.add('is-playing');
-    });
-
-    video.addEventListener('pause', () => {
-      if (video.currentTime === 0) slot.classList.remove('is-playing');
-    });
   });
 
 });
