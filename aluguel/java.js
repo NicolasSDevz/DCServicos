@@ -1,4 +1,4 @@
-// ===== Donna Clean — Airbnb / Temporada =====
+// ===== Donna Clean — Aluguel por Temporada =====
 
 document.addEventListener('DOMContentLoaded', () => {
 
