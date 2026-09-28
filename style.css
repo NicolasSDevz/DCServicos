@@ -415,7 +415,17 @@ h4 { font-size: var(--fs-h4); }
 
 /* ---------- Cards de serviço (tag sobre a foto, checklist e orçamento direto no WhatsApp) ---------- */
 .service-card { display: flex; flex-direction: column; }
-.service-card .photo-slot, .service-card .video-slot { border-radius: 0; aspect-ratio: 16/10; }
+.service-card .photo-slot, .service-card .video-slot { border-radius: 0; aspect-ratio: 4/3; }
+/* Fotos verticais: aparecem inteiras, sem corte, sobre fundo desfocado da própria foto */
+.photo-slot.fit-contain { background: var(--navy-dark); }
+.photo-slot.fit-contain::before {
+  content: ''; position: absolute; inset: -24px;
+  background: var(--fit-bg) center / cover no-repeat;
+  filter: blur(22px) brightness(0.9);
+  transform: scale(1.06);
+}
+.photo-slot.fit-contain img { position: relative; z-index: 1; object-fit: contain; }
+.video-contain video { object-fit: contain; }
 .service-tag {
   position: absolute; left: 16px; bottom: 16px; z-index: 3;
   background: #fff; color: var(--navy);
