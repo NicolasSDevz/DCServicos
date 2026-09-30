@@ -152,11 +152,33 @@ h4 { font-size: var(--fs-h4); }
 .hero-trust-item { display: flex; align-items: center; gap: 10px; font-size: var(--fs-small); font-weight: 700; color: var(--navy-dark); }
 .hero-trust-item i { color: var(--accent); font-size: 16px; }
 
-.hero-media { position: relative; padding-bottom: 24px; }
-.photo-slot-hero { aspect-ratio: 4/5; border-radius: var(--radius); box-shadow: var(--shadow); }
+.hero-media { position: relative; }
+/* Duas fotos (mesmo modelo da página de pós-obra): sala grande + quarto sobreposto */
+.hero-gallery { position: relative; padding: 0 0 28px; }
+.hero-photo-main {
+  aspect-ratio: 4/5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--navy);
+}
+.hero-photo-main img, .hero-photo-inset img { width: 100%; height: 100%; object-fit: cover; }
+.hero-photo-main img { object-position: 62% 50%; }
+.hero-photo-inset {
+  position: absolute;
+  right: -24px; bottom: 0;
+  width: 46%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-shadow: var(--shadow);
+  background: var(--navy);
+}
+.hero-photo-inset img { object-position: 60% 60%; }
 
 .hero-float-card {
-  position: absolute; bottom: 0; left: -24px;
+  position: absolute; bottom: 56px; left: -24px;
   background: #fff; border-radius: 16px; padding: 16px 20px;
   box-shadow: var(--shadow);
   display: flex; align-items: center; gap: 14px; max-width: 260px;
@@ -174,6 +196,7 @@ h4 { font-size: var(--fs-h4); }
 /* ---------- Photo Slots ---------- */
 .photo-slot { position: relative; border-radius: var(--radius); overflow: hidden; background: linear-gradient(135deg, var(--accent-soft), #CFDCFA); }
 .photo-slot img { width: 100%; height: 100%; object-fit: cover; }
+.photo-slot img.flip-x { transform: scaleX(-1); }
 .photo-placeholder {
   display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center;
   gap: 10px; text-align: center; padding: 12px;
@@ -304,8 +327,11 @@ h4 { font-size: var(--fs-h4); }
 
 /* ---------- Ideal para quem ---------- */
 .hero-sub-line { display: block; margin-top: 12px; }
-.audience { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
-.audience-main h2 { margin-bottom: 26px; }
+.hero-sub-lead { display: block; margin-bottom: 4px; }
+/* Título em cima; embaixo, lista e caixa azul lado a lado, com o mesmo topo e a mesma altura */
+.audience { display: grid; grid-template-columns: 1.15fr 0.85fr; column-gap: 48px; align-items: stretch; }
+.audience-head { grid-column: 1 / -1; }
+.audience-head h2 { margin-bottom: 26px; }
 .audience-list { display: grid; gap: 14px; }
 .audience-list li {
   display: flex; align-items: center; gap: 16px;
@@ -319,6 +345,7 @@ h4 { font-size: var(--fs-h4); }
   background: linear-gradient(135deg, var(--accent-soft), #C4D5FA); color: var(--navy); font-size: 18px;
 }
 .audience-cta {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   background: linear-gradient(135deg, var(--navy-dark), var(--navy) 60%, var(--blue) 130%);
   color: #fff; border-radius: var(--radius); padding: 36px 32px; box-shadow: var(--shadow);
 }
@@ -483,7 +510,8 @@ h4 { font-size: var(--fs-h4); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .price-card-featured { transform: none; }
-  .audience { grid-template-columns: 1fr; gap: 32px; }
+  .audience { grid-template-columns: 1fr; row-gap: 32px; }
+  .audience-head h2 { margin-bottom: 0; }
 }
 
 @media (max-width: 760px) {
@@ -491,7 +519,8 @@ h4 { font-size: var(--fs-h4); }
   .container { padding: 0 18px; }
   .hero { padding: 48px 0 72px; }
   .hero-trust { grid-template-columns: 1fr; justify-items: center; }
-  .hero-float-card { left: 0; right: 0; width: max-content; max-width: 92%; margin: 0 auto; }
+  .hero-photo-inset { right: 0; width: 44%; }
+  .hero-float-card { left: 12px; top: 12px; bottom: auto; padding: 12px 14px; max-width: 230px; }
   .grid-3 { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; text-align: left; }
