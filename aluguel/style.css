@@ -163,7 +163,7 @@ h4 { font-size: var(--fs-h4); }
   background: var(--navy);
 }
 .hero-photo-main img, .hero-photo-inset img { width: 100%; height: 100%; object-fit: cover; }
-.hero-photo-main img { object-position: 62% 50%; }
+.hero-photo-main img { object-position: 100% 50%; }
 .hero-photo-inset {
   position: absolute;
   right: -24px; bottom: 0;

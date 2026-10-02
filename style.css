@@ -211,6 +211,7 @@ h4 { font-size: var(--fs-h4); }
   margin-bottom: 32px;
 }
 .hero-sub strong { color: #fff; }
+.hero-sub-lead { display: block; margin-bottom: 4px; }
 .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 40px; }
 .cta-note { font-size: var(--fs-caption); color: #B9C0E6; display: flex; align-items: center; gap: 8px; }
 .cta-note i { color: var(--accent-light); }
